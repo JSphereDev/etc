@@ -40,8 +40,8 @@ window.addEventListener('message', (event) => {
         data = (data) ? JSON.parse(data) : {};
         let found = false;
         const components = document.querySelectorAll(`[data-id^='view:']`);
-        for (let component of components) {
-            if (component.messageListeners[subject]){
+        for (const component of components) {
+            if (component.messageListeners && component.messageListeners[subject]){
                 found = true;
                 component.messageListeners[subject](data, component.view);
             }
