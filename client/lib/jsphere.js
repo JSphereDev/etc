@@ -43,7 +43,7 @@ window.addEventListener('message', (event) => {
         for (const component of components) {
             if (component.messageListeners && component.messageListeners[subject]){
                 found = true;
-                component.messageListeners[subject](data, component.view);
+                component.messageListeners[subject](component.view, data);
             }
         }
         if (!found) {
